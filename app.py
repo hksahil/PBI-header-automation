@@ -53,35 +53,19 @@ if ss:
                 if name == 'Report/Layout':
                     # Read the contents of the layout file
                     data = source_zip.read(name).decode('utf-16 le')
-
                     # Old layout file
-                    with open('og_file.json', 'w') as f:
+                    with open('app-og.json', 'w') as f:
                         a=json.loads(data)
                         json.dump(a, f)
                     try:
-                        # ##### Removing certain elements
-                        # data=json.loads(data)
-                        # for section in data['sections']:
-                        #     print(section)
-
-                        #     # Create a new list of visual containers that don't meet the condition
-                        #     new_visual_containers = []
-                        #     for visualContainer in section['visualContainers']:
-                        #         # Check if y is 0 and x is >500 and config contains "parallelogram" or "rectangle"
-                        #         if visualContainer['y'] == 0 and visualContainer['x'] > 500 and ("parallelogram" in visualContainer['config'] or "rectangle" in visualContainer['config']):
-                        #             continue
-                        #         else:
-                        #             new_visual_containers.append(visualContainer)
-
-                        #     # Replace the old list with the new list
-                        #     section['visualContainers'] = new_visual_containers
-                        
+                        data=json.loads(data)
                         ##### Changing attributes of certain elements
                         for section in data['sections']:
+                            # print(section,'section')
                             section['visualContainers'].append(new_vc)
                                 
                         # New Layout file
-                        with open('updated_file.json', 'w') as f:
+                        with open('app-generated.json', 'w') as f:
                             json.dump(data, f)
                     
                     except:
