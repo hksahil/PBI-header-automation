@@ -22,7 +22,7 @@ hide_st_style = """
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 # --------- Removing Streamlit's Hamburger and Footer ends ------------
-new_vc = {
+new_vc1 = {
     "id": 99999999,
     "x": 0,
     "y": 0,
@@ -33,6 +33,17 @@ new_vc = {
     "filters": "[]",
     "tabOrder": 15000
 }
+new_vc2 = {
+                    "id": 2539326977,
+                    "x": 345.1685393258427,
+                    "y": 11.985018726591761,
+                    "z": 38000,
+                    "width": 299.62546816479403,
+                    "height": 64.71910112359551,
+                    "config": "{\"name\":\"1ee7ff6475ab1fbc89b7\",\"layouts\":[{\"id\":0,\"position\":{\"x\":345.1685393258427,\"y\":11.985018726591761,\"z\":38000,\"width\":299.62546816479403,\"height\":64.71910112359551,\"tabOrder\":38000}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Dummy\",\"textStyle\":{\"fontWeight\":\"bold\",\"fontSize\":\"20pt\",\"color\":\"#ffffff\"}}]}]}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+                    "filters": "[]",
+                    "tabOrder": 38000
+                }
 
 
 if ss:
@@ -62,7 +73,8 @@ if ss:
                         ##### Changing attributes of certain elements
                         for section in data['sections']:
                             # print(section,'section')
-                            section['visualContainers'].append(new_vc)
+                            section['visualContainers'].append(new_vc1)
+                            section['visualContainers'].append(new_vc2)
                                 
                         # New Layout file
                         with open('app-generated.json', 'w') as f:
